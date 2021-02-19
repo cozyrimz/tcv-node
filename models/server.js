@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
-const mongoURI =
-  'mongodb+srv://tcvapp:9PPp5wvMdDccuUab@cluster0.25u1s.mongodb.net/TexasCovidVaccine?retryWrites=true&w=majority';
+const mongoURI = process.env.MONGO_URI
 const connectToDB = async () => {
   await mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
   console.log('Connected To  Mongo DB Server');

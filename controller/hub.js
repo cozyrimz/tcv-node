@@ -1,19 +1,19 @@
 const { Hub } = require('../models/hub');
 const { logApiError, logServerError, findAndUpdateKeyDifferences, renameKeys } = require('../util');
-const { sampleData } = require('../../frontend/testData/testCityData');
+// const { sampleData } = require('../../frontend/testData/testCityData');
 
-const fillSampleData = async () => {
-  await Hub.deleteMany();
+// const fillSampleData = async () => {
+//   await Hub.deleteMany();
 
-  for (const entry of sampleData.hubs) {
-    let { city, name, address, type, zipcode, loc, phone, url, doses } = entry;
-    entry.loc = { long: loc[1], lat: loc[0] };
+//   for (const entry of sampleData.hubs) {
+//     let { city, name, address, type, zipcode, loc, phone, url, doses } = entry;
+//     entry.loc = { long: loc[1], lat: loc[0] };
 
-    await renameKeys(entry, { type: 'hubType' });
-    delete entry['id'];
-    await Hub.create(entry);
-  }
-};
+//     await renameKeys(entry, { type: 'hubType' });
+//     delete entry['id'];
+//     await Hub.create(entry);
+//   }
+// };
 // setTimeout(() => fillSampleData(), 3000);
 
 //******************ROUTE METHODS **********************/

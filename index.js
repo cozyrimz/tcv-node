@@ -11,7 +11,7 @@ app.use(morgan('dev'));
 
 connectToDB();
 
-const whiteList = new Set(['http://localhost:1020']);
+const whiteList = new Set(['http://localhost:1020','https://texas-covid-vaccines.netlify.app','texas-covid-vaccines.netlify.app']);
 
 const corsOptions = {
   origin: (origin, callback) => {

@@ -11,7 +11,12 @@ app.use(morgan('dev'));
 
 connectToDB();
 
-const whiteList = new Set(['http://localhost:1020','https://texas-covid-vaccines.netlify.app','texas-covid-vaccines.netlify.app']);
+const whiteList = new Set([
+  'http://localhost:1020',
+  'https://texas-covid-vaccines.netlify.app',
+  'https://tcv-staging.netlify.app',
+  'https://www.texascovidvaccines.com/',
+]);
 
 const corsOptions = {
   origin: (origin, callback) => {
@@ -33,6 +38,8 @@ app.use('/', entryRoutes);
 const port = process.env.PORT || 4050;
 app.listen(port, () => {
   console.log(
-    `A ${process.env.NODE_ENV ? process.env.NODE_ENV.toUpperCase() : 'NO ENV FILE'} Node JS Server is listening on port ${port}`
+    `A ${
+      process.env.NODE_ENV ? process.env.NODE_ENV.toUpperCase() : 'NO ENV FILE'
+    } Node JS Server is listening on port ${port}`
   );
 });

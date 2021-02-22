@@ -7,7 +7,7 @@ const { connectToDB } = require('./models/server');
 const bodyParser = require('body-parser');
 const entryRoutes = require('./routes/hub');
 
-app.use(morgan('dev'));
+if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
 connectToDB();
 
